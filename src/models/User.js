@@ -11,8 +11,18 @@ import mongoose from "mongoose";
 
 
 const userSchema = new mongoose.Schema({
-  // Students implement
-});
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    lowercase: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+}, { timestamps: true });
 
 const User = mongoose.model("User", userSchema);
 
